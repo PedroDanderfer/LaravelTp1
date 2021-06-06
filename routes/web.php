@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DisplayController;
 
 use App\Http\Middleware\checkNotLogged;
 
@@ -17,12 +18,27 @@ use App\Http\Middleware\checkNotLogged;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/login')->name('login.')->group(function(){
+    Route::get('/', [DisplayController::class, 'login'])
+        ->name('view')
+        ->middleware(CheckNotLogged::class);
+});
+
+
+Route::prefix('/register')->name('register.')->group(function(){
+    Route::get('/', [Displaycontroller::class, 'register'])
+        ->name('view')
+        ->middleware(CheckNotLogged::class);
 });
 
 Route::prefix('/auth')->name('auth.')->group(function(){
-    Route::get('/view',[AuthController::class, 'view'])
-        ->name('authView')
-        ->middleware(checkNotLogged::class);
+    Route::post('/login', [AuthController::class, 'login'])
+        ->name('login');
+        Route::post('/register', [AuthController::class, 'register'])
+        ->name('register');
+        Route::post('/logout', [AuthController::class, 'logout'])
+        ->name('logout'); 
 });
+
+Route::get('/', [DisplayController::class, 'home'])
+    ->name('home');

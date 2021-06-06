@@ -1,4 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto:wght@300;400;500;700;900&display=swap');
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+#display{
+    display: block;
+    width: 100%;
+    height: calc(100vh - 50px);
+    padding: 10px 5px 10px 5px;
+}
+
+.errorMsj{
+    color: red;
+    font-size: 12px;
+}
+
+@media (min-width:900px){
+
+    #display{
+        height: calc(100vh - 100px);
+        margin-top: 50px;
+    }
+
 }

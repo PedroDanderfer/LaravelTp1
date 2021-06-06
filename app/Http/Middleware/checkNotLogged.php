@@ -6,7 +6,7 @@ use Auth;
 use Closure;
 use Illuminate\Http\Request;
 
-class checkNotLogged
+class CheckNotLogged
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class checkNotLogged
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            return redirect(route('app.home'));
+            return redirect(route('home'));
         }
 
         return $next($request);

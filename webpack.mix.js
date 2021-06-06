@@ -12,4 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/scss/app.scss', 'public/css');
+    .js('resources/js/navMobile.js', 'public/js')
+    .js('resources/js/navPerfil.js', 'public/js')
+    .sass('resources/scss/app.scss', 'public/css')
+    .sass('resources/scss/header.scss', 'public/css')
+    .sass('resources/scss/login.scss', 'public/css')
+    .sass('resources/scss/register.scss', 'public/css');
