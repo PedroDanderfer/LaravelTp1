@@ -1,0 +1,56 @@
+#adminDisplay {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#adminDisplay > table {
+  width: 100%;
+}
+#adminDisplay > table tr {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 40px 40px 40px;
+  grid-template-rows: 40px;
+}
+#adminDisplay > table tr td {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  font-size: 12px;
+}
+#adminDisplay > table tr td form input[type=submit] {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  font-size: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}
+#adminDisplay > table tr td:nth-of-type(4) form input[type=submit] {
+  background-image: url("/images/trash_icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#adminDisplay > table tr td:nth-of-type(5) form input[type=submit] {
+  background-image: url("/images/admin_icon.png");
+}
+#adminDisplay > table tr td:last-of-type form input[type=submit] {
+  background-image: url("/images/seller_icon.png");
+}
+#adminDisplay > table tr .is {
+  background-color: yellowgreen;
+  border: 1px solid yellowgreen;
+}
+#adminDisplay > table tr .isNot {
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 1px solid rgba(255, 0, 0, 0.5);
+}
+#adminDisplay > table tr:first-of-type td:last-of-type {
+  padding-left: 80px;
+}
+
+@media (min-width: 900px) {
+  #adminDisplay {
+    max-width: 750px;
+  }
+}

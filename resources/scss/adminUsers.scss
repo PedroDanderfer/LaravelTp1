@@ -1,0 +1,81 @@
+#adminDisplay{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    >table{
+        width: 100%;
+        tr{
+            display: grid;
+            grid-template-columns: 40px 1fr 1fr 40px 40px 40px;
+            grid-template-rows: 40px;
+
+            td{
+                display: flex;
+                align-self: center;
+                justify-self: center;
+                font-size: 12px;
+
+                form{
+                    input[type=submit]{
+                        width: 30px;
+                        height: 30px;
+                        background-color: transparent;
+                        font-size: 0;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            td:nth-of-type(4){
+                form{
+                    input[type=submit]{
+                        background-image: url('/images/trash_icon.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+
+            td:nth-of-type(5){
+                form{
+                    input[type=submit]{
+                        background-image: url('/images/admin_icon.png');
+                    }
+                }
+            }
+
+            td:last-of-type{
+                form{
+                    input[type=submit]{
+                        background-image: url('/images/seller_icon.png');
+                    }
+                }
+            }
+
+            .is{
+                background-color: yellowgreen;
+                border: 1px solid yellowgreen;
+            }
+
+            .isNot{
+                background-color: rgba(255, 0, 0, 0.5);
+                border: 1px solid rgba(255, 0, 0, 0.5);
+            }
+           
+        }
+        tr:first-of-type{
+               td:last-of-type{
+                   padding-left: 80px;
+               } 
+        }
+    }
+}
+
+@media(min-width:900px){
+    #adminDisplay{
+        max-width: 750px;
+    }
+}

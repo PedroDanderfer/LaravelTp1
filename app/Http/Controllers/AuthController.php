@@ -11,6 +11,89 @@ use Auth;
 class AuthController extends Controller
 {
 
+    public function registerView(){
+        return view('register');
+    }
+
+    public function changeAdmin(Request $request){
+
+        try {
+            $user = User::findOrFail(intval($request->get('user_id')));
+
+            try{
+
+                if($request->get('change') === 'assign'){
+                    $user->assignRole('admin');
+                }else{
+                    $user->removeRole('admin');
+                }
+
+                return redirect(route('admin.users'))->withSuccessMessage('Usuario actualizado con éxito.');
+
+            }catch(Exception $e){
+                return redirect(route('admin.users'))->withErrorMessage("El usuario solicitado (id: $id) no pudo ser actualizado.");
+            }
+    
+        } catch (ModelNotFoundException $e) {
+            return redirect(route('admin.users'))->withErrorMessage("El usuario solicitado (id: $id) no pudo ser encontrado.");
+        }
+
+
+    }
+
+    public function changeSeller(Request $request){
+
+        try {
+            $user = User::findOrFail(intval($request->get('user_id')));
+
+            try{
+
+                if($request->get('change') === 'assign'){
+                    $user->assignRole('seller');
+                }else{
+                    $user->removeRole('seller');
+                }
+
+                return redirect(route('admin.users'))->withSuccessMessage('Usuario actualizado con éxito.');
+
+            }catch(Exception $e){
+                return redirect(route('admin.users'))->withErrorMessage("El usuario solicitado (id: $id) no pudo ser actualizado.");
+            }
+    
+        } catch (ModelNotFoundException $e) {
+            return redirect(route('admin.users'))->withErrorMessage("El usuario solicitado (id: $id) no pudo ser encontrado");
+        }
+
+
+    }
+
+    public function delete(string $id){
+
+        if(Auth::id() == $id){
+            
+            return redirect(route('admin.users'))->withErrorMessage('No podes eliminarte a ti mismo');
+
+        }
+
+        try {
+            $user = User::findOrFail(intval($id));
+
+            try{
+
+                $user->delete();
+
+                return redirect(route('admin.users'))->withSuccessMessage('Usuario eliminado');
+
+            }catch(Exception $e){
+                return redirect(route('admin.users'))->withErrorMessage("El usuario solicitado (id: $id) no pudo ser eliminado.");
+            }
+    
+        } catch (ModelNotFoundException $e) {
+            return redirect(route('admin.users'))->withErrorMessage("El usuario solicitado (id: $id) no pudo ser encontrado.");
+        }
+        
+    }
+
     public function register(Request $request){
 
         $validation = $request->validate([
@@ -33,13 +116,17 @@ class AuthController extends Controller
 
             $user->assignRole('buyer');
 
-            return redirect(route('home'))->withSuccessMessage('¡Cuenta creada con éxito!');
+            return redirect(route('product.getAll'))->withSuccessMessage('¡Cuenta creada con éxito!');
 
         }catch(Exception $e){
 
-            return back()->withErrorMessage('Opss... Ocurrio un problema: '+ $e);
+            return redirect(route('register.view'))->withErrorMessage('Opss... Ocurrio un problema: '+ $e);
 
         }
+    }
+
+    public function loginView(){
+        return view('login');
     }
 
     public function login(Request $request){
@@ -60,13 +147,10 @@ class AuthController extends Controller
 
         if(!auth()->attempt($credential)) {
         
-            return redirect()
-                ->route('login.view')
-                ->with('message', 'Los datos son erroneos.')
-                ->with('message_type', 'danger');
+            return redirect(route('login.view'))->withErrorMessage('Los datos son erroneos');
         }else{
 
-            return redirect()->route('home');
+            return redirect()->route('product.getAll');
 
         }
 
@@ -75,6 +159,6 @@ class AuthController extends Controller
 
     public function logout(Request $request){
         Auth::logout();
-        return redirect(route('home'));
+        return redirect(route('product.getAll'));
     }
 }

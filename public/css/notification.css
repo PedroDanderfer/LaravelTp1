@@ -1,0 +1,25 @@
+.success-notification {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: rgba(0, 255, 0, 0.2);
+}
+.success-notification > p {
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 0;
+}
+
+.error-notification {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+.error-notification > p {
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 0;
+}

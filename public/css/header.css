@@ -55,6 +55,7 @@ header > div:first-of-type > h1 {
   justify-self: center;
   align-self: center;
   font-family: "Odibee Sans", cursive;
+  padding-top: 10px;
 }
 header > div:first-of-type > h1 > a {
   text-decoration: none;
@@ -65,6 +66,8 @@ header > nav {
   height: calc(100vh - 50px);
   background-color: rgba(0, 0, 0, 0.3);
   transform: translateX(-100%);
+  z-index: 9999 !important;
+  position: absolute;
 }
 header > nav > div {
   width: 80%;
@@ -198,6 +201,51 @@ header > nav > div > ul:last-of-type .navPerfil > ul > li:last-of-type > form > 
   border-radius: 5px;
 }
 
+#navAdmin {
+  width: 100%;
+  height: 50px;
+  padding-top: 5px;
+}
+#navAdmin > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+#navAdmin > ul > li {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  font-size: 0;
+}
+#navAdmin > ul > li > a {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#navAdmin > ul > li:first-of-type > a {
+  background-image: url("/images/user_icon.png");
+}
+#navAdmin > ul > li:nth-of-type(2) > a {
+  background-image: url("/images/products_icon.png");
+}
+#navAdmin > ul > li:last-of-type > a {
+  background-image: url("/images/orders_icon.png");
+}
+
+@media (min-width: 450px) {
+  #navAdmin > ul {
+    max-width: 200px;
+  }
+}
 @media (min-width: 900px) {
   header > div:first-of-type {
     grid-template-columns: 1fr;
@@ -333,6 +381,10 @@ header > nav > div > ul:last-of-type .navPerfil > ul > li:last-of-type > form > 
     border: none;
     border-radius: 0;
     font-size: 11px;
+  }
+
+  #navAdmin {
+    margin-top: 50px;
   }
 }
 @media (min-width: 1005px) {

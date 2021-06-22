@@ -26,8 +26,8 @@ class CreateRolesAndPermissions extends Migration
         $buyPostPermission = Permission::create(['name' => 'buy post']);
 
         $adminRole->givePermissionTo($accessAdminPanelPermission);
-        $adminRole->givePermissionTo($accessAdminPanelPermission);
-        $adminRole->givePermissionTo($accessAdminPanelPermission);
+        $adminRole->givePermissionTo($createPostPermission);
+        $adminRole->givePermissionTo($buyPostPermission);
 
         $sellerRole->givePermissionTo($createPostPermission);
         $sellerRole->givePermissionTo($buyPostPermission);

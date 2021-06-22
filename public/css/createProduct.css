@@ -1,0 +1,82 @@
+#createPostDisplay {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+#createPostDisplay > div {
+  width: 90%;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+#createPostDisplay > div > div {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+}
+#createPostDisplay > div > div > form {
+  width: 100%;
+}
+#createPostDisplay > div > div > form > div:first-of-type {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 80px;
+  grid-gap: 5px;
+}
+#createPostDisplay > div > div > form > div:first-of-type .imageExample {
+  width: 80px;
+  height: 80px;
+  display: block;
+  background-image: url("/images/empty_icon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#createPostDisplay > div > div > form > div:first-of-type > input {
+  display: flex;
+  align-self: flex-end;
+}
+#createPostDisplay > div > div > form > div:nth-of-type(2), #createPostDisplay > div > div > form > div:nth-of-type(3), #createPostDisplay > div > div > form > div:nth-of-type(4), #createPostDisplay > div > div > form > div:nth-of-type(5), #createPostDisplay > div > div > form > div:nth-of-type(6), #createPostDisplay > div > div > form > div:nth-of-type(7), #createPostDisplay > div > div > form > div:nth-of-type(8) {
+  padding: 10px 0 10px 0;
+}
+#createPostDisplay > div > div > form > div:nth-of-type(2) > input, #createPostDisplay > div > div > form > div:nth-of-type(3) > input, #createPostDisplay > div > div > form > div:nth-of-type(4) > input, #createPostDisplay > div > div > form > div:nth-of-type(5) > input, #createPostDisplay > div > div > form > div:nth-of-type(6) > input, #createPostDisplay > div > div > form > div:nth-of-type(7) > input, #createPostDisplay > div > div > form > div:nth-of-type(8) > input {
+  width: 100%;
+  background-color: white;
+  border: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  height: 30px;
+  padding: 5px 5px 5px 5px;
+  outline: none;
+}
+#createPostDisplay > div > div > form > div:nth-of-type(2) > textarea, #createPostDisplay > div > div > form > div:nth-of-type(3) > textarea, #createPostDisplay > div > div > form > div:nth-of-type(4) > textarea, #createPostDisplay > div > div > form > div:nth-of-type(5) > textarea, #createPostDisplay > div > div > form > div:nth-of-type(6) > textarea, #createPostDisplay > div > div > form > div:nth-of-type(7) > textarea, #createPostDisplay > div > div > form > div:nth-of-type(8) > textarea {
+  width: 100%;
+  background-color: white;
+  border: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  height: 100px;
+  padding: 5px 5px 5px 5px;
+  outline: none;
+  resize: none;
+}
+#createPostDisplay > div > div > form > input[type=submit] {
+  width: 100%;
+  height: 40px;
+  background-color: yellowgreen;
+  border: 1px solid yellowgreen;
+  border-radius: 5px;
+  outline: none;
+}
+
+@media (min-width: 480px) {
+  #createPostDisplay {
+    padding: 20px 0 20px 0;
+  }
+  #createPostDisplay > div {
+    width: 80%;
+    max-width: 400px;
+  }
+}

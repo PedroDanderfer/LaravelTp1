@@ -1,9 +1,18 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/navMobile.js": "/js/navMobile.js",
     "/js/navPerfil.js": "/js/navPerfil.js",
     "/css/app.css": "/css/app.css",
+    "/css/index.css": "/css/index.css",
     "/css/register.css": "/css/register.css",
     "/css/login.css": "/css/login.css",
-    "/css/header.css": "/css/header.css"
+    "/css/header.css": "/css/header.css",
+    "/css/_variables.css": "/css/_variables.css",
+    "/css/notification.css": "/css/notification.css",
+    "/css/comingSoon.css": "/css/comingSoon.css",
+    "/css/adminUsers.css": "/css/adminUsers.css",
+    "/css/product.css": "/css/product.css",
+    "/css/createProduct.css": "/css/createProduct.css",
+    "/css/products.css": "/css/products.css"
 }

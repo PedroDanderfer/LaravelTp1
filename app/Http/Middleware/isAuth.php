@@ -2,11 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckNotLogged
+use Auth;
+
+class isAuth
 {
     /**
      * Handle an incoming request.
@@ -18,9 +19,9 @@ class CheckNotLogged
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            return redirect(route('home'));
+            return redirect(route('product.getAll'))->withErrorMessage('Ya estás logeado.');
         }
-
+        
         return $next($request);
     }
 }

@@ -3,7 +3,7 @@
         <div class="navPerfil">
             <span id="navPerfilBtn" class="nombreNavPerfil">{{ Auth::user()->name }} {{ Auth::user()->surname }}</span>
             <ul id="navPerfilMenu">
-                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="{{ route('comingSoon') }}">Mi cuenta</a></li>
                 <li>
                     <form method="POST" action="{{ route('auth.logout') }}">
                         @csrf

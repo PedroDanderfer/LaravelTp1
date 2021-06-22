@@ -6,15 +6,8 @@ use Illuminate\Http\Request;
 
 class DisplayController extends Controller
 {
-    public function login(){
-        return view('login');
-    }
 
-    public function register(){
-        return view('register');
-    }
-
-    public function home(){
-        return view('home');
+    public function comingSoon(){
+        return view('comingSoon');
     }
 }

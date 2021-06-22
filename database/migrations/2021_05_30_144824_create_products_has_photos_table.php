@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPhotosToProducts extends Migration
+class CreateProductsHasPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddPhotosToProducts extends Migration
      */
     public function up()
     {
-        Schema::table('product_photos', function (Blueprint $table) {
-            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+        Schema::create('products_has_photos', function (Blueprint $table) {
+            $table->id();
+            $table->string('photo', 250);
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddPhotosToProducts extends Migration
      */
     public function down()
     {
-        Schema::table('product_photos', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('products_has_photos');
     }
 }

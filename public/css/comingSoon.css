@@ -1,0 +1,15 @@
+#comingSoon {
+  width: 100%;
+  height: calc(100vh - 100px);
+  text-align: center;
+  padding-top: 200px;
+}
+#comingSoon > h2 {
+  font-size: 18px;
+}
+#comingSoon > p > a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  text-decoration: underline;
+}
